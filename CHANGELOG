@@ -1,0 +1,29 @@
+Hi Josh :)
+
+This code starts with the file called pipeline_rmh.py from the Code-9-12-2021 directory, although it's renamed here just as pipeline.py for simplicity.
+
+The pipeline_rmh.py file differs from pipeline.py in Code-9-12-2021 in a few ways:
+
+- The argument excluded_parts_of_speech for tokenize_latin.enumerativeness is carried up through all the nested functions, so you can manipulate it directly in the pipeline file. That way you can see clearly which POS you're excluding without having to open the files for individual functions. Note that there are corrsponding changes in create_csvs.py and tokenize_latin.py for this as well, not just the pipeline file.
+- removed some extra debugging lines, where it was printing lines to the terminal as it went through a corpus
+
+Note that I only copied over the code from Code-9-12-2021 that I know is in use; I left the other .py files there without making copies of them. 
+
+New to 2022-01-23:
+
+- tokenize_latin.prepare_input_text: This was originally a one-line program, but I broke it into a couple steps and added a step to remove all non-ASCII characters (e.g. unicode). In the tokenize_latin function, prepare_input_text is applied line by line, so it would be to edit this to check if any unicode exists in the input to prepare_input_text, and if so return a blank line (''), effectively removing any line with unicode in it. 
+
+-  Code  changed so that no parts of speech were excluded.
+
+New 2022-02-05: 
+
+- Added code to write a log file each time pipeline.py is run. The name of the log file includes the time and date the code was run, so each log file will be unique and you won't accidentally overwrite one. The log file records the output directory used, the excluded parts of speech, and then copies the full text of both create_csvs.py and tokenize_latin.py so there's a snapshot of all of that code stored with the output it created.
+
+- Recommendation now is to edit pipeline.py file for each run to use the desired output_directory and excluded parts of speech, save, then execute. 
+
+
+New 2022-02-07:
+
+- Updated tokenize_latin.enumerativeness to save not just the enumerativeness score itself, but the two numbers that comprise it: number of tokens in the line, and number of tokens of the top case in that line. The output of tokenize_latin.enumerativeness is now a dictionary with those three values. 
+
+- I also updated create_csvs.py to reflect the change to the enumerativeness function; now all three of those values are saved in separate columns in the csvs. 
