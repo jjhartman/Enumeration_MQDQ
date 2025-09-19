@@ -9,7 +9,7 @@ import unidecode
 # create list in order to begin for loop
 files=glob.glob("*.json")
 
-#setup for loop to go through each csv  in dir and find  the Greek  chars
+#setup for loop to go through each csv  in dir, then find  and convert the unicode Greek  chars to Roman alphabet
 for file in files:
   #open file, read mode
   file_conn=open(file,"r")
