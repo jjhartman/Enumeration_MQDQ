@@ -24,10 +24,6 @@ logger.setLevel(logging.DEBUG)
 
 number_of_cores = psutil.cpu_count(logical=True)
 
-# Temporarily changed by Dave
-#data_directory = '/Users/joshuahartman/desktop/MQDQII/Texts'
-#output_directory = 'parsed_data 3'
-
 data_directory = '/Users/joshuahartman/desktop/MQDQII/Temporary_Texts'
 output_directory = 'CSVS_No_Exclusion'
 
